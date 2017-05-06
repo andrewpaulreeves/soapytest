@@ -5,7 +5,7 @@ nDM: 1
 nSci: 1
 nIters: 5000
 loopTime: 0.0025
-threads: 4
+threads: 1
 
 verbosity: 2
 
@@ -40,16 +40,17 @@ WFS:
     GSPosition: [0, 0]
     GSHeight: 0
     GSMag: 0
-    nxSubaps: 6
+    nxSubaps: 16
     pxlsPerSubap: 10
     subapFOV: 2.5
     wavelength: 500e-9
 
 DM:
   0:
-    type: GaussStack
+    type: FastPiezo
     closed: True
-    nxActuators: 7
+    nxActuators: 17
+    iMatValue: 500
 
 Reconstructor:
   type: MVM
@@ -60,6 +61,6 @@ Science:
   0:
     position: [0, 0]
     FOV: 1.0
-    wavelength: 500e-9
+    wavelength: 1.65e-6
     pxls: 64
 
