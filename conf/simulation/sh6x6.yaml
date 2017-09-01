@@ -1,0 +1,76 @@
+simName:
+pupilSize: 120
+nGS: 1
+nDM: 2
+nSci: 1
+nIters: 5000
+loopTime: 0.002
+threads: 4
+
+verbosity: 2
+
+photometric_zp: 2e9
+
+saveCMat: False
+saveSlopes: True
+saveDmCommands:   False
+saveLgsPsf: False
+saveSciPsf: True
+
+
+Atmosphere:
+  scrnNo: 4
+  scrnHeights: [0, 400, 6000, 9000]
+  scrnStrengths: [0.4, 0.2, 0.3, 0.1]
+  windDirs: [0, 0, 0, 0]
+  windSpeeds: [11, 20, 29, 35]
+  wholeScrnSize: 2048
+  r0: 0.18615
+  L0: [200, 200, 200, 200]
+  infinite: True
+
+
+Telescope:
+  telDiam: 7.9
+  obsDiam: 0.78
+  mask: circle
+
+WFS:
+  0:
+    type: ShackHartmannFast
+    GSPosition: [0, 0]
+    GSHeight: 0
+    GSMag: 5
+    nxSubaps: 6
+    pxlsPerSubap: 10
+    subapFOV: 2.
+    wavelength: 650e-9
+    eReadNoise: 0
+    photonNoise: False
+    centThreshold: 0
+
+DM:
+  0:
+    type: TT
+    closed: True
+    iMatValue: 0.2
+
+  1:
+    type: FastPiezo
+    closed: True
+    nxActuators: 7
+    iMatValue: 2000
+
+Reconstructor:
+  type: MVM
+  svdConditioning: 0.06666
+  gain: 0.6
+  imat_noise: False
+
+Science:
+  0:
+    position: [0, 0]
+    FOV: 4.0
+    wavelength: 1.65e-6
+    pxls: 350
+
